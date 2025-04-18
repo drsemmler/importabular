@@ -263,7 +263,6 @@ export default class Importabular {
 
   /** @private Handles the paste event on the node.*/
   paste = (e) => {
-    console.log("paste", e);
     if (this._editing) return;
     e.preventDefault();
     const rows = parseArrayString(
@@ -308,7 +307,6 @@ export default class Importabular {
 
   /** @private Called when the copy even happens in the iframe.*/
   copy = (e) => {
-    console.log("copy", e);
     if (this._editing) return;
     const asArr = this._getSelectionAsArray();
     if (asArr) {
@@ -321,15 +319,12 @@ export default class Importabular {
    * Runs the copy method and then clears the cells.
    * */
   cut = (e) => {
-    console.log("cut", e);
     if (this._editing) return;
     this.copy(e);
     this._setAllSelectedCellsTo("");
   };
 
   keydown = (e) => {
-    console.log("keydown v2", e);
-
     if (e.ctrlKey || e.metaKey) return;
 
     if (this._selectionStart) {
